@@ -1,0 +1,25 @@
+.game {
+  display: grid;
+  justify-content: center;
+  @include clearfix;
+ 
+    
+    &__grid {
+      // display: grid;
+      // grid-template-columns: repeat(3, 3fr);
+      // grid-auto-rows: repeate(3, 3fr);
+      height: 50rem;
+      width: 50rem;
+      display: grid;
+      grid-template-columns: repeat(10, auto);
+   }
+
+   &__square{
+    display: flex;
+    border: solid;
+    border-width: thin;
+    background: white;
+   }
+
+  
+}
