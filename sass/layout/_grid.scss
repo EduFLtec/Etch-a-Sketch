@@ -1,20 +1,17 @@
-.game {
+.canvas {
   display: grid;
   justify-content: center;
   @include clearfix;
  
     
     &__grid {
-      // display: grid;
-      // grid-template-columns: repeat(3, 3fr);
-      // grid-auto-rows: repeate(3, 3fr);
       height: 50rem;
       width: 50rem;
       display: grid;
-      grid-template-columns: repeat(10, auto);
-   }
+      // grid-template-columns: repeat(2, auto);
+    }
 
-   &__square{
+   &__cell{
     display: flex;
     border: solid;
     border-width: thin;
