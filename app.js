@@ -22,6 +22,11 @@ function createCanvasCells (gridSize) {
     };
 }
 
+
+//Event listeners
+window.onload = createCanvasCells; 
+slider.onmouseup = createCanvasCells;
+
 //Target grid children with event delegation
 canvasGrid.addEventListener('mouseover', function (e) {
     // Add paint class to apply background via CSS
@@ -31,7 +36,4 @@ canvasGrid.addEventListener('mouseover', function (e) {
   });
 
 
-//Event listeners
-window.onload = createCanvasCells; 
-slider.onmouseup = createCanvasCells;
 
