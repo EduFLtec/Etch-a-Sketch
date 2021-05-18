@@ -2,18 +2,14 @@
 const canvasGrid = document.querySelector('.canvas__grid');
 
 //Control Varriables
-const slider = document.querySelector('.input__slider');
+const gridSizeSlider = document.querySelector('.input__slider');
+const eraseCanvasButton = document.querySelector('.btn__clear');
 
 
 function createCanvasCells (gridSize) {
-    gridSize = slider.value
-    let currentCells = document.querySelectorAll('.canvas__cell');
+    gridSize = gridSizeSlider.value    
 //Clear cells on resize
-    if(currentCells){
-        currentCells.forEach(currentCell => {
-            currentCell.remove();
-        });
-    }
+    clearCanvas();
     for (let i = 0; i < (gridSize * gridSize); i++) {
         let canvasCell = document.createElement('div');
         canvasCell.classList = 'canvas__cell';
@@ -22,10 +18,29 @@ function createCanvasCells (gridSize) {
     };
 }
 
+function clearCanvas() {
+    let currentCells = document.querySelectorAll('.canvas__cell');
+    if(currentCells) {
+        currentCells.forEach(currentCell => {
+            currentCell.remove();
+        });
+    }
+}
+
+function eraseCanvas() {
+    let paintedCells = document.querySelectorAll('.paint');
+    if (paintedCells) {
+        paintedCells.forEach(paintedCells => {
+            paintedCells.classList.remove('paint');
+        });
+    }
+}
+
 
 //Event listeners
 window.onload = createCanvasCells; 
-slider.onmouseup = createCanvasCells;
+gridSizeSlider.addEventListener('mouseup',createCanvasCells);
+eraseCanvasButton.addEventListener('click', eraseCanvas);
 
 //Target grid children with event delegation
 canvasGrid.addEventListener('mouseover', function (e) {
@@ -34,6 +49,3 @@ canvasGrid.addEventListener('mouseover', function (e) {
       e.target.classList.add('paint');
     }
   });
-
-
-

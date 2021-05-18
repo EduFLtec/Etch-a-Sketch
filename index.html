@@ -17,11 +17,17 @@
         </div>
         <div class="header__controls-box">
             <!-- Step 2: add controls to change the size of the container div -->
-            <div class="controls__slider-box">
+            <div class="controls__slider">
                 <input type="range" min="4" max="50" value="25" class="input__slider">
             </div>
             <!-- Step 3: add controls to clear the grid -->
-            <!-- Step 4: add a button to toggle and eraser -->
+            <button class="controls__btn">
+                <span class="btn btn__clear">Erase All</span>
+            </button>
+            <!-- Step 4: add a single cell eraser toggle -->
+            <button class="controls__btn">
+                <span class="btn">Eraser</span>
+            </button>
             <!-- Step 5: add a button to select / change colors -->
         </div>
     </header>
@@ -29,8 +35,7 @@
     <main>
         <section class="canvas">
             <div class="canvas__grid">
-                <!-- create via js <div class="canvas__cell"></div> -->
-                <!-- Git Test -->
+                <!-- Step 1 create cells via js '<div class="canvas__cell"></div>' -->
             </div>
         </section>
     </main>
