@@ -16,6 +16,10 @@
     border: solid;
     border-width: thin;
     background: white;
+    
+    &.paint{
+      background-color: $color-black;
+    }
    }
 
   

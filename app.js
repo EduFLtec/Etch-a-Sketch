@@ -1,12 +1,14 @@
 //Grid Varriables
 const canvasGrid = document.querySelector('.canvas__grid');
-// let gridSize = getGridSize();
+
+//Control Varriables
 const slider = document.querySelector('.input__slider');
 
-//Cell Creation Function 
+
 function createCanvasCells (gridSize) {
     gridSize = slider.value
     let currentCells = document.querySelectorAll('.canvas__cell');
+//Clear cells on resize
     if(currentCells){
         currentCells.forEach(currentCell => {
             currentCell.remove();
@@ -20,5 +22,16 @@ function createCanvasCells (gridSize) {
     };
 }
 
+//Target grid children with event delegation
+canvasGrid.addEventListener('mouseover', function (e) {
+    // Add paint class to apply background via CSS
+    if (e.target.matches('.canvas__cell')) {
+      e.target.classList.add('paint');
+    }
+  });
+
+
+//Event listeners
+window.onload = createCanvasCells; 
 slider.onmouseup = createCanvasCells;
-window.onload = createCanvasCells;
+

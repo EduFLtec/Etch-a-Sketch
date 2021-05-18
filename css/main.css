@@ -85,13 +85,15 @@ body {
   height: 50rem;
   width: 50rem;
   display: grid;
-  grid-template-columns: repeat(2, auto);
 }
 .canvas__cell {
   display: flex;
   border: solid;
   border-width: thin;
   background: white;
+}
+.canvas__cell.paint {
+  background-color: #000;
 }
 
 .footer {
