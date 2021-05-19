@@ -87,7 +87,6 @@ body {
   display: flex;
   border: solid;
   border-width: thin;
-  background: white;
 }
 .canvas__cell.paint {
   background-color: #000;

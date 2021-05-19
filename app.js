@@ -1,5 +1,6 @@
 //Grid Varriables
 const canvasGrid = document.querySelector('.canvas__grid');
+const canvasColorPicker = document.querySelector('#canvas-color');
 
 //Control Varriables
 const gridSizeSlider = document.querySelector('.input__slider');
@@ -66,3 +67,6 @@ eraseCellButton.addEventListener('click', function (e) {
     }
 });
   
+canvasColorPicker.addEventListener('change', function (e) {
+    canvasGrid.style.background = e.target.value;
+});
