@@ -4,7 +4,7 @@ const canvasGrid = document.querySelector('.canvas__grid');
 //Control Varriables
 const gridSizeSlider = document.querySelector('.input__slider');
 const eraseCanvasButton = document.querySelector('.btn__clear');
-const eraseCellButton = document.querySelector('.btn_eraser');
+const eraseCellButton = document.querySelector('.btn__eraser');
 let eraseActive;
 
 

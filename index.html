@@ -17,7 +17,7 @@
         </div>
         <div class="header__controls-box">
             <!-- Step 2: add controls to change the size of the container div -->
-            <div class="controls__slider">
+            <div class="controls__btn">
                 <input type="range" min="4" max="50" value="25" class="input__slider">
             </div>
             <!-- Step 3: add controls to clear the grid -->
@@ -26,9 +26,14 @@
             </button>
             <!-- Step 4: add a single cell eraser toggle -->
             <button class="controls__btn">
-                <span class="btn btn_eraser">Eraser</span>
+                <span class="btn btn__eraser">Eraser</span>
             </button>
-            <!-- Step 5: add a button to select / change colors -->
+            <!-- Step 5: add a button to change backround color -->
+            <div class="controls__btn">
+                <span>Background Color: <input class="btn btn__color" type="color" value="#000" id="input-color"></span>
+            </div>
+            <!-- Step 6: add a button to change 'brush' color -->
+            <!-- Step 7: add a buttton to add a 'shadding mode' with incremental opacity-->
         </div>
     </header>
 

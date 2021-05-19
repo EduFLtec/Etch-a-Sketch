@@ -2,21 +2,16 @@
   background: $color-primary-dark;
   color: $color-primary-light;
 
-  // &__clear{
-  //   background-color: $color-primary-dark;
-  //   color: $color-primary-light;
-  // }
 
-  &:link,
-  &:visited {
-    background: none;
-    color: $color-primary-dark;
-    text-transform: uppercase;
-    text-decoration: none;
-    display: inline-block;
-    transition: all .2s;
-  }
+&.active {
+  color: $color-black;
+  background-color: $color-secondary;
+}
 
+ 
+}
+
+.controls__btn{
   &:hover {
     transform: translateY(-.5rem);
 
@@ -26,5 +21,3 @@
     }
   }
 }
-
-
