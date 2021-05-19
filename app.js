@@ -1,11 +1,12 @@
 //Grid Varriables
 const canvasGrid = document.querySelector('.canvas__grid');
-const canvasColorPicker = document.querySelector('#canvas-color');
 
 //Control Varriables
 const gridSizeSlider = document.querySelector('.input__slider');
 const eraseCanvasButton = document.querySelector('.btn__clear');
 const eraseCellButton = document.querySelector('.btn__eraser');
+const canvasColorPicker = document.querySelector('#canvas-color');
+const brushColorPicker = document.querySelector('#brush-color');
 let eraseActive;
 
 
@@ -34,6 +35,7 @@ function eraseCanvas() {
     let paintedCells = document.querySelectorAll('.paint');
     if (paintedCells) {
         paintedCells.forEach(paintedCells => {
+            paintedCells.style.background = null;
             paintedCells.classList.remove('paint');
         });
     }
@@ -48,15 +50,18 @@ eraseCanvasButton.addEventListener('click', eraseCanvas);
 
 //Target grid children with event delegation
 canvasGrid.addEventListener('mouseover', function (e) {
-    // Add paint class to apply background via CSS and 'paint cell'
+    // Remove paint class to erase "painted cells'
     if (e.target.matches('.canvas__cell') && eraseActive){
       e.target.classList.remove('paint');
+      e.target.style.background = null;
+    // Add paint class to apply background via CSS and 'paint cell'
     } else {
         e.target.classList.add('paint');
+        e.target.style.background = brushColorPicker.value;
     }
   });
 
-//Target button child with event delegation to toggle active class
+//Event delgegation to toggle active class
 eraseCellButton.addEventListener('click', function (e) {
   if (e.target.matches('.active')) {
        e.target.classList.remove('active');
@@ -70,3 +75,4 @@ eraseCellButton.addEventListener('click', function (e) {
 canvasColorPicker.addEventListener('change', function (e) {
     canvasGrid.style.background = e.target.value;
 });
+
