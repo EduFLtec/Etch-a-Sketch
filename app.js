@@ -7,7 +7,9 @@ const eraseCanvasButton = document.querySelector('.btn__clear');
 const eraseCellButton = document.querySelector('.btn__eraser');
 const canvasColorPicker = document.querySelector('#canvas-color');
 const brushColorPicker = document.querySelector('#brush-color');
+const rainbowButton = document.querySelector('.btn__rainbow');
 let eraseActive;
+let rainbowActive;
 
 
 function createCanvasCells (gridSize) {
@@ -20,7 +22,7 @@ function createCanvasCells (gridSize) {
         canvasGrid.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
         canvasGrid.appendChild(canvasCell);
     };
-}
+};
 
 function clearCanvas() {
     let currentCells = document.querySelectorAll('.canvas__cell');
@@ -29,23 +31,42 @@ function clearCanvas() {
             currentCell.remove();
         });
     }
-}
+};
 
 function eraseCanvas() {
     let paintedCells = document.querySelectorAll('.paint');
+    //toggle rainbow or eraser button off 
+   setEraserBtnOff();
+   setRainbowBtnOff();
     if (paintedCells) {
         paintedCells.forEach(paintedCells => {
             paintedCells.style.background = null;
             paintedCells.classList.remove('paint');
         });
     }
-}
+};
 
+function selectCanvasColor(e) {
+    canvasGrid.style.background = e.target.value;
+}; 
+
+
+function setEraserBtnOff() {
+    eraseCellButton.classList.remove('active');
+    eraseActive = false;
+};
+
+function setRainbowBtnOff() {
+    rainbowButton.classList.remove('active');
+    rainbowActive = false;
+};
 
 //Event listeners
 window.onload = createCanvasCells; 
 gridSizeSlider.addEventListener('mouseup', createCanvasCells);
 eraseCanvasButton.addEventListener('click', eraseCanvas);
+canvasColorPicker.addEventListener('change', selectCanvasColor);
+canvasColorPicker.addEventListener('input', selectCanvasColor);
 
 
 //Target grid children with event delegation
@@ -58,21 +79,28 @@ canvasGrid.addEventListener('mouseover', function (e) {
     } else {
         e.target.classList.add('paint');
         e.target.style.background = brushColorPicker.value;
-    }
+    };
   });
 
 //Event delgegation to toggle active class
 eraseCellButton.addEventListener('click', function (e) {
   if (e.target.matches('.active')) {
-       e.target.classList.remove('active');
-       eraseActive = false;
+       setEraserBtnOff();
     } else {
         e.target.classList.add('active');
         eraseActive = true;
-    }
+        //Toogle rainbow button off when eraser is on
+        setRainbowBtnOff();
+    };
 });
   
-canvasColorPicker.addEventListener('change', function (e) {
-    canvasGrid.style.background = e.target.value;
-});
-
+rainbowButton.addEventListener('click', function (e) {
+    if (e.target.matches('.active')) {
+        setRainbowBtnOff();
+      } else {
+          e.target.classList.add('active');
+          rainbowActive = true;
+          //Toogle eraser button off when rainbow is on
+         setEraserBtnOff();
+      };
+  });
