@@ -18,28 +18,31 @@
         <div class="header__controls-box">
             <!-- Step 2: add controls to change the size of the container div -->
             <div class="controls__btn">
+                <p class="label">Grid Size:</p>
                 <input type="range" min="4" max="50" value="25" class="input__slider">
             </div>
             <!-- Step 3: add controls to clear the grid -->
-            <button class="controls__btn">
-                <span class="btn btn__clear">Erase All</span>
-            </button>
+            <div class="controls__btn">
+                <button class="btn btn__clear">Erase All</button>
+            </div>
             <!-- Step 4: add a single cell eraser toggle -->
-            <button class="controls__btn">
-                <span class="btn btn__eraser">Eraser</span>
-            </button>
+            <div class="controls__btn">
+                <button class="btn btn__eraser">Eraser</button>
+            </div>
             <!-- Step 5: add a button to change backround color -->
             <div class="controls__btn">
-                <span>Background Color: <input class="btn btn__color__canvas" type="color" value="#000000" id="canvas-color"></span>
+                <p class="label">Background Color: </p>
+                <input class="btn btn__color__canvas" type="color" value="#000000" id="canvas-color">
             </div>
             <!-- Step 6: add a button to change 'brush' color -->
             <div class="controls__btn">
-                <span>Brush Color: <input class="btn btn__color__brush" type="color" value="#000000" id="brush-color"></span>
+                <p class="label">Brush color:</p>
+                <input class="btn btn__color__brush" type="color" value="#000000" id="brush-color">
             </div>
              <!-- Step 7: add a rainbow mode button -->
-             <button class="controls__btn">
-                <span class="btn btn__rainbow">Rainbow</span>
-            </button>
+             <div class="controls__btn">
+                <button class="btn btn__rainbow">Rainbow</button>
+             </div>
         </div>
     </header>
 

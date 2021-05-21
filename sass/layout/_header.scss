@@ -3,4 +3,31 @@
   top: 0;
   left: 0;
   width: 100%;
+
+  &__text-box {
+    animation-name: moveInTop;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+  }
+
+  &__controls-box{
+    display: inline-flex;
+    width: 100%;
+    justify-content: center;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+  }
+
 }
+
+.controls__btn{
+  margin: .5rem;
+  font-size: 1.5rem;
+  border: outset;
+  padding: .1rem;
+}
+
+// .label{
+//   font-size: 1.2rem;
+// }
